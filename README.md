@@ -1,3 +1,18 @@
 # Password Generator
 
-![screenshot of password generator site](Screen Shot 2022-08-13 at 4.13.01 PM.png)
+![screenshot of password generator site](Password_Generator.png)
+
+
+## Purpose
+To create a site with a password generator where a user can input desired length and character choices for their passwords
+
+##Built With
+HTML
+CSS
+JAVASCRIPT
+
+##Website
+
+
+## Contribution
+Made with ❤️ by Alex Defrese
