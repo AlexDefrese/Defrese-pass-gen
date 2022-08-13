@@ -17,40 +17,57 @@ generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  var validInput = userInput();
+  // passwordText var needs to be global to be accessed by both if and els statements
+  var passwordText = document.querySelector("#password"); 
+  
+  //if user input is valid then generate password 
+  if (validInput) {
+  var newPassword = generatePassword();
+  passwordText.value = newPassword;
+  } else {
+    passwordText.value = "";
+  }
 
 }
 
 
 function generatePassword() {
 // should generate password based on user input
+  var password = "";
+  for (i = 0; i < characterLength; i++) {
+  var randomIndex = Math.floor(Math.random() * choiceArr.length)
+  password = password +choiceArr[randomIndex];
+  }
+  return password;
 }
 
 function userInput() {
-    characterLength = parseInt(window.prompt("How long would you like your password to be? Please choose between 8-128 characters."));
+  // resets choice array when function is ran
+    choiceArr = [];
+
+    characterLength = parseInt(prompt("How long would you like your password to be? Please choose between 8-128 characters."));
 
     // ensure user answer is valid
     if(isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
-      window.alert("Please choose a character length betwee 8-128 characters. Thank you.");
+      alert("Please choose a character length between 8-128 characters. Thank you.");
       return false;
     }
 // adds lowercase letters to choice array
-    if (window.confirm("Would you like lower case letters in your password?")){ 
+    if (confirm("Would you like lower case letters in your password?")){ 
         choiceArr = choiceArr.concat(lowerCase);
     }
     // adds uppercase letters to choice array
-    if (window.confirm("Would you like upper case letters in your password?")){ 
+    if (confirm("Would you like upper case letters in your password?")){ 
         choiceArr = choiceArr.concat(upperCase);
     }
     // adds numbers to choice array
-    if (window.confirm("Would you like numbers in your password?")){ 
+    if (confirm("Would you like numbers in your password?")){ 
       choiceArr = choiceArr.concat(numbers);
-  }
+    }
   // adds special characters to choice array
-    if (window.confirm("Would you like special characters (!,@,#,$,%,^,&...) in your password?")){ 
-    choiceArr = choiceArr.concat(specialChar);
-}
+    if (confirm("Would you like special characters (!,@,#,$,%,^,&...) in your password?")){ 
+    choiceArr = choiceArr.concat(specialChar); 
+    }
+    return true;
 }
