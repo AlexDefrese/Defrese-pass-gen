@@ -6,12 +6,12 @@
 ## Purpose
 To create a site with a password generator where a user can input desired length and character choices for their passwords
 
-##Built With
+## Built With
 HTML
 CSS
 JAVASCRIPT
 
-##Website
+## Website
 
 
 ## Contribution
